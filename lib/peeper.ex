@@ -2,8 +2,6 @@ defmodule GymPeep.Peeper do
   def people do
     url = "http://www.puregym.com/gyms/cambridge/whats-happening"
 
-    # The website gives gzip by default, which neither library automatically
-    # deals with. Could decompress, but easiest to just demand uncompressed.
     {:ok, response} = HTTPoison.get(url)
 
     body = case response.headers["Content-Encoding"] do
