@@ -1,7 +1,6 @@
 defmodule GymPeep do
   def main( _args ) do
-    HTTPoison.start()
-    Cauldron.start( Server, port: 8080 )
+    GymPeep.Supervisor.start_link()
 
     # TODO: how to block?
     receive do
