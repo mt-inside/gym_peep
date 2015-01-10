@@ -4,7 +4,12 @@ defmodule Peeper do
 
     # The website gives gzip by default, which neither library automatically
     # deals with. Could decompress, but easiest to just demand uncompressed.
-    {:ok, %HTTPoison.Response{body: body}} = HTTPoison.get(url, [{"Accept-Encoding", ""}])
+    {:ok, response} = HTTPoison.get(url)
+
+    body = case response.headers["Content-Encoding"] do
+      "gzip" -> :zlib.gunzip( response.body )
+      nil -> response.body
+    end
 
     # Element address:
     # CSS: #main > div.people.happening-thing > span.people-number
