@@ -1,4 +1,4 @@
-defmodule Peeper do
+defmodule GymPeep.Peeper do
   def people do
     url = "http://www.puregym.com/gyms/cambridge/whats-happening"
 
