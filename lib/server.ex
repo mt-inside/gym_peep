@@ -6,6 +6,6 @@ defmodule Server do
   end
 
   def handle( "GET", %URI{path: _}, req ) do
-    Request.reply( req, 200, "no u" )
+    Request.reply( req, 404 )
   end
 end
