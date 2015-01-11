@@ -1,10 +1,7 @@
 defmodule GymPeep do
-  def main( _args ) do
-    GymPeep.Supervisor.start_link()
+  use Application
 
-    # TODO: how to block?
-    receive do
-      :ok -> :lol
-    end
+  def start( _type, _args ) do
+    GymPeep.Supervisor.start_link()
   end
 end
