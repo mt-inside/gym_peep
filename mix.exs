@@ -6,7 +6,8 @@ defmodule GymPeep.Mixfile do
      version: "0.0.1",
      elixir: "~> 1.0",
      escript: [main_module: GymPeep],
-     deps: deps]
+     deps: deps,
+     lingex_opts: lingex_opts]
   end
 
   # Configuration for the OTP application
@@ -29,6 +30,13 @@ defmodule GymPeep.Mixfile do
   defp deps do
     [{:floki, "~> 0.0.5"},
      {:httpoison, "~> 0.5"},
-     {:cauldron, "~> 0.1.5"}]
+     {:cauldron, "~> 0.1.5"},
+     {:lingex, github: "mt-inside/lingex"}]
+  end
+
+  def lingex_opts do
+    [build_host: "build.erlangonxen.org",
+     username: "test",
+     password: "test"]
   end
 end
