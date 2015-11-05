@@ -34,7 +34,7 @@ defmodule GymPeep.Mixfile do
      {:lingex, github: "mt-inside/lingex"}]
   end
 
-  def lingex_opts do
+  defp lingex_opts do
     [build_host: "build.erlangonxen.org",
      username: "test",
      password: "test"]
